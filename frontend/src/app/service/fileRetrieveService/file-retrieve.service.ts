@@ -13,8 +13,8 @@ export class FileRetrieveService {
 
   bucket = new S3(
     {
-        accessKeyId: 'AKIAYCPUJFTJDYUHFXHQ',
-        secretAccessKey: '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',
+        accessKeyId: '',
+        secretAccessKey: '',
         region: 'us-east-1'
     }
   );
@@ -22,7 +22,7 @@ export class FileRetrieveService {
   retrieveDocument(): Observable<any>{
     const fileUploads = new Array();
     const params = {
-        Bucket: 'beaconfire-group6-personaldocuments',
+        Bucket: '',
         Prefix: ''
     };
 

@@ -11,8 +11,8 @@ export class FileUploadService {
 
   bucket = new S3(
     {
-        accessKeyId: 'AKIAYCPUJFTJDYUHFXHQ',
-        secretAccessKey: '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',
+        accessKeyId: '',
+        secretAccessKey: '',
         region: 'us-east-2'
     }
   );
@@ -21,7 +21,7 @@ export class FileUploadService {
     const contentType = file.type;
 
       const params = {
-        Bucket: 'beaconfire-group6-avatars',
+        Bucket: '',
         Key: username + '/avatar/' + file.name,
         Body: file,
         ContentType: contentType
@@ -42,7 +42,7 @@ export class FileUploadService {
   uploadDocument(file: any){
     const contentType = file.type;
       const params = {
-        Bucket: 'beaconfire-group6-personaldocuments',
+        Bucket: '',
         Key: file.name,
         Body: file,
         ContentType: contentType
