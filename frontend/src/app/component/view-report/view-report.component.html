@@ -1,0 +1,40 @@
+<div class="card-columns" style="margin-left: 20px; margin-top: 50px;" *ngIf='isReportList'>
+    <div class="card" *ngFor='let report of reportList'>
+        <div class="card-body">
+          <h3 class="card-title">{{report.title}}</h3>
+          <p class="card-text">{{report.description}}</p>
+          <!-- <p class="card-text"><small class="text-muted">{{report.employee_id}}</small></p> -->
+          <p class="card-text"><small class="text-muted">{{report.reportDate}} &nbsp; > &nbsp; Status: {{report.status}}</small></p>
+          <button type="button" class="btn btn-info" (click)='currReport = report; viewComment(); viewCommentCheck()'>View Comments</button> &nbsp;
+          <button type="button" class="btn btn-info" (click)='currReport = report; addCommentCheck()'>Add Comments</button>
+        </div>
+    </div>
+</div>
+
+
+<form class="example-form"  (ngSubmit)="addComment(); addCommentSnackBar()" *ngIf='isAddComment'>
+      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Comment</mat-label>
+      <textarea matInput placeholder="Leave a new comment..." [(ngModel)]="newComment.comments" name="comment"></textarea>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Submit</button> &nbsp;
+    <button mat-raised-button (click)='cancelComment()'>Cancel</button>
+</form>
+
+<div class="card-columns" style="margin-left: 20px; margin-top: 50px;" *ngIf='isViewComment'>
+    <div class="card" *ngFor='let comment of commentList'>
+        <div class="comment">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Comment</mat-label>
+            <textarea matInput [(ngModel)]="comment.comments" name="comment_text" [disabled]='!comment.updateable'></textarea>
+          </mat-form-field>
+          <p class="card-text"><small class="text-muted">&nbsp; Created By: {{comment.employee_id}} . &nbsp; Comment Date: {{dateFilter(comment)}}</small></p>
+          <button mat-raised-button color="primary" (click)='comment.updateable = true;' *ngIf="!comment.updateable; else cancelUpdate" [disabled]='updateableCheck(comment)'>Update</button> &nbsp;
+          <ng-template #cancelUpdate>
+            <button mat-raised-button (click)='comment.updateable = false;'>Cancel</button>
+          </ng-template>
+          <button mat-raised-button (click)='updateComment(comment); updateCommentSnackBar()' [disabled]='!comment.updateable'>Submit</button>
+          </div>
+    </div>
+</div>

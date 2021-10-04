@@ -1,0 +1,15 @@
+<h2>Please enter your token below</h2>
+
+
+<form [formGroup]="tokenform" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="token">
+          Token:
+        </label>
+        <input id="token" type="text" formControlName="token">
+      </div>
+
+    <button class="button" type="submit">Submit</button>
+  
+  </form>

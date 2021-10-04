@@ -1,0 +1,144 @@
+
+<h3>Status Tracking Table</h3>
+
+<table mat-table [dataSource]="dataEmployeeVisaList" multiTemplateDataRows> 
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Minimize/Expand </th>
+        <td mat-cell *matCellDef="let element">
+    
+            <div *ngIf="element.isExpanded == false || element.isExpanded==undefined"> 
+    
+                <a mat-button href="javascript:void()" (click)="element.isExpanded = true">Expand</a>
+    
+            </div>
+    
+            <div *ngIf="element.isExpanded == true "> 
+    
+                <a mat-button href="javascript:void()" (click)="element.isExpanded = false">Minimize</a>
+    
+            </div>
+          <!-- <a mat-button href="javascript:void()" (click)="element.isExpanded = !element.isExpanded">Expand</a> -->
+    
+    
+        </td>
+      </ng-container>
+
+<ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name  </th>
+    <td mat-cell *matCellDef="let element"> <a [routerLink]="['/hr/visaStatus']" routerLinkActive="router-link-active" >{{element.firstname}} {{element.lastname}}  </a></td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="work">
+    <th mat-header-cell *matHeaderCellDef> Work </th>
+    <td mat-cell *matCellDef="let element"> {{element.visaType}}/{{element.visaStatus}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="exp">
+    <th mat-header-cell *matHeaderCellDef> Expiration Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="dayleft">
+    <th mat-header-cell *matHeaderCellDef> Days Left </th>
+    <td mat-cell *matCellDef="let element"> {{element.dayLeft}} </td>
+  </ng-container>
+
+ 
+
+  <ng-container matColumnDef="notification">
+    <th mat-header-cell *matHeaderCellDef> Action Required </th>
+    <td mat-cell *matCellDef="let element"> 
+      
+      <div *ngIf="element.visaStatus == 'OPT Receipt' ">
+            <button (click) = "sendNotification1('OPT Receipt', element.email )"> Send Notification </button>
+      </div>
+
+      <div *ngIf="element.visaStatus == 'OPT EAD' ">
+        <button (click) = "sendNotification2('OPT EAD', element.email )"> Send Notification </button>
+     </div>
+
+     <div *ngIf="element.visaStatus == 'I-983 Waiting For Approval' ">
+      I-983(ask for signature)
+      <button (click)="previewFile(element.employeeId)">Preview</button>  
+      <button (click)="downloadFile(element.employeeId)">Download</button>
+
+      <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit2(element.employeeId)">      
+        <div>
+          <input type="file" name="file" (change)="onFileSelect($event)" />
+        </div>
+        <div>
+          <button type="submit">Upload Signed I-983 and Approve</button>
+        </div>
+      </form>
+ </div>
+
+     <div *ngIf="element.visaStatus == 'I-983 Approved' ">
+            <button (click) = "sendNotification3('I-983 Approved', element.email )"> Send Notification </button>
+     </div>
+
+
+
+    <div *ngIf="element.visaStatus == 'I-20' ">
+      <button (click) = "sendNotification4('I-20', element.email )"> Send Notification </button>
+    </div>
+
+    <div *ngIf="element.visaStatus == 'OPT STEM Receipt' ">
+      <button (click) = "sendNotification5('OPT STEM Receipt', element.email )"> Send Notification </button>
+    </div>
+
+
+    
+      
+      
+     </td>
+  </ng-container>
+
+ 
+
+
+      <!-- Template for details row -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedVisaColumnsList.length">
+  
+          <div class="row student-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+            <div class="row">
+              <div class= "col">
+
+              <div>Name: {{element.firstname}} {{element.lastname}}</div>  
+              <div>Visa: {{element.visaType}} </div>
+              <div>Start Date: {{element.startDate}}</div>
+              <div>End Date: {{element.endDate}}</div>
+              
+                </div>
+              <div class="col">
+            <mat-list>
+              <div mat-subheader>Document Received:</div>
+              <mat-list-item *ngFor="let doc of element.visaDocuments">
+                <div mat-line>{{doc.iconname}}</div>
+                <div mat-line> {{doc.filename}}  </div>
+              </mat-list-item>
+            </mat-list>
+
+            Next Step: {{element.nextStep}}
+
+            </div>
+
+            </div>
+          </div>
+  
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedVisaColumnsList;sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedVisaColumnsList;"  
+    ></tr>
+
+    
+
+  </table>
+
+  <div> <pdf-viewer [src]="previewurl" [original-size]="true"></pdf-viewer></div>

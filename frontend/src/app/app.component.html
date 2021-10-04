@@ -1,0 +1,16 @@
+<div *ngIf = "user == null">
+    <div class="topnav">
+        <a class="active" href="http://localhost:4200/login">Log In</a>
+        <a routerLink = "register">Register</a>
+    </div>
+</div>
+<div *ngIf = "user != null">
+    <div  *ngIf = "employee.manager_id == null">
+        <app-employee-navibar></app-employee-navibar>
+    </div>
+
+    <div *ngIf = "employee.manager_id != null">
+        <app-hrcomponent></app-hrcomponent>
+    </div>
+</div>
+<router-outlet></router-outlet>

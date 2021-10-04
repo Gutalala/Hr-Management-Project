@@ -1,0 +1,140 @@
+<h4>Visa Management</h4>
+<h5>You are holding an: {{visaType}} </h5>
+
+<h6>Here is what you should do next: </h6>
+
+
+<div *ngIf=" visaType == 'OPT Receipt' || visaType == 'OPT EAD rejected'  ">  
+
+    <div>Please upload a copy of your OPT EAD</div>
+
+ 
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit('OPT EAD pending')">      
+          <div>
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+          </div>
+          <div>
+            <button type="submit">Upload</button>
+          </div>
+        </form>
+        <div *ngIf="isEmptyFile">
+            Empty File!
+        </div>
+ 
+
+</div>
+
+
+<div *ngIf=" visaType == 'OPT EAD' && optEadDayLeft < 100">  
+    <div>Your OPT EAD is expiring within 100 days</div>
+    <div>Please download and fill your I-983 form</div>
+
+    <div><a href="https://www.ice.gov/doclib/sevis/pdf/i983.pdf" target="_blank" >Empty I-983 Form</a> </div>
+    <div><a href="https://isss.utah.edu/forms-publications/documents/f1-form-i-983-sample.pdf" target="_blank">Sample I-983 template with instructions</a> </div>
+
+    <div>Upload your filled I-983 below</div>
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit('I-983 Waiting For Approval')">      
+          <div>
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+          </div>
+          <div>
+            <button type="submit">Upload</button>
+          </div>
+        </form>
+        <div *ngIf="isEmptyFile">
+            Empty File!
+        </div>
+ 
+
+</div>
+
+
+<div *ngIf=" visaType == 'I-983 Waiting For Approval'  ">  
+   
+    <h6>Please Wait for HR to Approve and Sign Your I-983</h6>
+ 
+
+</div>
+
+<div *ngIf=" visaType.includes('pending') ">  
+   
+  <h6>Please Wait for HR to Approve Your newly uploaded file</h6>
+
+
+</div>
+ 
+
+
+<div *ngIf=" visaType == 'I-983 Approved'  ">  
+ 
+    <h6>Please send the I-983 with all necessary documents to your school and upload the new I-20</h6>
+
+ 
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit('I-20 pending')">      
+          <div>
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+          </div>
+          <div>
+            <button type="submit">Upload</button>
+          </div>
+        </form>
+        <div *ngIf="isEmptyFile">
+            Empty File!
+        </div>
+</div>
+<!-- //different types of visa -->
+
+<!-- <div *ngIf=" visaType == 'OPT Receipt' ">  
+
+    <div>Please upload a copy of your OPT EAD</div>
+
+    <button>Upload</button>
+
+</div> -->
+
+
+<div *ngIf=" visaType == 'I-20' || visaType == 'OPT STEM Receipt rejected' ">  
+
+    <div>Please upload a copy of your OPT STEM Receipt</div>
+
+ 
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit('OPT STEM Receipt pending')">      
+          <div>
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+          </div>
+          <div>
+            <button type="submit">Upload</button>
+          </div>
+        </form>
+        <div *ngIf="isEmptyFile">
+            Empty File!
+        </div>
+ 
+
+</div>
+
+
+<div *ngIf=" visaType == 'OPT STEM Receipt' || visaType == 'OPT STEM EAD rejected'  ">  
+
+    <div>Please upload your OPT STEM EAD</div>
+
+ 
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit('OPT STEM EAD pending')">      
+          <div>
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+          </div>
+          <div>
+            <button type="submit">Upload</button>
+          </div>
+        </form>
+        <div *ngIf="isEmptyFile">
+            Empty File!
+        </div>
+ 
+
+</div>
+
+ 
+ 
+
+<app-visaemployeedocuments></app-visaemployeedocuments>

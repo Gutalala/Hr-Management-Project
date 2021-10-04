@@ -1,0 +1,45 @@
+<div class = "header">
+    <mat-form-field>
+        <input matInput (keyup) = "applyFilter($event)" placeholder = "Search">
+    </mat-form-field>
+</div>
+
+<div class = "container mat-elevation-z8">
+    <mat-table [dataSource] = "dataSource" matSort>
+    
+        <ng-container matColumnDef = "name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef = "let employee">{{employee.firstName}} {{employee.lastName}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "ssn">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> SSN </mat-header-cell>
+            <mat-cell *matCellDef = "let employee">{{employee.ssn}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "startingDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Starting Date </mat-header-cell>
+            <mat-cell *matCellDef = "let employee">{{employee.startDate | date: 'MM-dd-YYYY'}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "visaType">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Visa Type </mat-header-cell>
+            <mat-cell *matCellDef = "let employee">{{employee.visaStatus.visaType}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "visaStartDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Visa Start Date </mat-header-cell>
+            <mat-cell *matCellDef = "let employee">{{employee.visaStatus.visaStartDate}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef = "visaEndDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Visa End Date </mat-header-cell>
+            <mat-cell *matCellDef = "let employee">{{employee.visaStatus.visaEndDate}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef = "displayColumns"></mat-header-row>
+        <mat-row *matRowDef = "let employee; columns: displayColumns;"></mat-row>
+    </mat-table>
+    
+    <mat-paginator [pageSizeOptions] = "[10, 20, 50, 100]"></mat-paginator>
+</div>

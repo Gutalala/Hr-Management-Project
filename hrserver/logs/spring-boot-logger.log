@@ -1,0 +1,529 @@
+2021-08-07 00:20:52,728 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:33, serverValue:71563}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 00:20:52,913 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:34, serverValue:91266}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 00:20:53,227 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 00:20:53,458 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:35, serverValue:71935}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 00:20:53,459 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=126626700, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 00:20:54 MDT 2021, lastUpdateTimeNanos=432907653848600}
+2021-08-07 00:20:54,540 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:36, serverValue:71863}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 00:20:58,117 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-00.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 00:20:58,284 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:37, serverValue:71565}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 00:20:58,285 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-00.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=116442000, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-00.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c43ea8f57ca82aa3750f9, counter=4}, lastWriteDate=Sat Aug 07 00:20:59 MDT 2021, lastUpdateTimeNanos=432912480279100}
+2021-08-07 00:20:58,381 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 00:20:58,542 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:38, serverValue:91104}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 00:20:58,542 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=109736500, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 00:20:59 MDT 2021, lastUpdateTimeNanos=432912738411200}
+2021-08-07 00:20:58,543 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 00:33:54,035 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 00:33:54,507 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:39, serverValue:72285}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 00:33:54,507 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=200696000, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 00:33:55 MDT 2021, lastUpdateTimeNanos=433688702835500}
+2021-08-07 00:33:56,765 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:40, serverValue:71937}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 00:33:57,185 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:41, serverValue:91560}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 00:33:58,788 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:42, serverValue:72284}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 00:33:58,822 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-00.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 00:33:59,118 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:43, serverValue:71937}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 00:33:59,119 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-00.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=201701400, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-00.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c43ea8f57ca82aa3750f9, counter=4}, lastWriteDate=Sat Aug 07 00:34:00 MDT 2021, lastUpdateTimeNanos=433693314667500}
+2021-08-07 00:33:59,122 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 00:33:59,429 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:44, serverValue:91696}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 00:33:59,429 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=205483800, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 00:34:00 MDT 2021, lastUpdateTimeNanos=433693623311100}
+2021-08-07 00:33:59,429 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 00:37:55,945 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Scheduling Cron test
+2021-08-07 01:07:58,327 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Schedule Fixed Rate Test 2
+2021-08-07 01:18:52,531 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 01:18:53,017 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:45, serverValue:93003}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 01:18:53,017 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=206919700, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 01:18:53 MDT 2021, lastUpdateTimeNanos=436387212666500}
+2021-08-07 01:18:53,018 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 02:31:38,236 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 02:31:38,721 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:46, serverValue:95382}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 02:31:38,722 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=207732300, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 02:31:39 MDT 2021, lastUpdateTimeNanos=440752917379400}
+2021-08-07 02:31:38,722 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 02:31:40,515 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 02:31:40,904 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:47, serverValue:75558}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 02:31:40,905 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=194944800, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 02:31:41 MDT 2021, lastUpdateTimeNanos=440755100275600}
+2021-08-07 02:54:56,490 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-00.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 02:54:56,490 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 02:54:56,509 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 02:54:57,783 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:49, serverValue:96116}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 02:54:57,783 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=130854800, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 02:54:58 MDT 2021, lastUpdateTimeNanos=442151979092200}
+2021-08-07 02:54:57,783 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 02:54:57,807 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:48, serverValue:75795}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 02:54:57,807 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-00.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=126803100, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-00.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c43ea8f57ca82aa3750f9, counter=4}, lastWriteDate=Sat Aug 07 02:54:58 MDT 2021, lastUpdateTimeNanos=442152003049600}
+2021-08-07 02:54:57,886 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:50, serverValue:76170}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 02:54:57,886 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=136654100, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 02:54:58 MDT 2021, lastUpdateTimeNanos=442152081692200}
+2021-08-07 02:55:14,224 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:51, serverValue:76172}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 02:55:14,325 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:52, serverValue:96177}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 02:55:14,374 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:53, serverValue:75797}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 03:00:00,004 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Scheduling Cron test
+2021-08-07 04:07:58,325 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Schedule Fixed Rate Test 2
+2021-08-07 11:08:40,708 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 11:08:40,812 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-00.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 11:08:41,308 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:54, serverValue:90742}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 11:08:41,337 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:55, serverValue:90364}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 11:08:41,434 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-00.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=209062700, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-00.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c43ea8f57ca82aa3750f9, counter=4}, lastWriteDate=Sat Aug 07 11:08:42 MDT 2021, lastUpdateTimeNanos=471775553916700}
+2021-08-07 11:08:41,434 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=175121900, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 11:08:42 MDT 2021, lastUpdateTimeNanos=471775525044700}
+2021-08-07 11:08:46,417 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 11:08:46,678 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:56, serverValue:113161}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 11:08:46,680 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=152431800, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 11:08:47 MDT 2021, lastUpdateTimeNanos=471780894945700}
+2021-08-07 11:08:46,681 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 11:08:51,389 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:57, serverValue:90369}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 11:08:51,657 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:58, serverValue:113430}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 11:08:51,879 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:59, serverValue:90755}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 12:11:54,201 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Scheduling Cron test
+2021-08-07 12:11:54,207 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Schedule Fixed Rate Test 2
+2021-08-07 12:11:54,208 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Schedule Fixed Rate Test 2
+2021-08-07 13:07:58,322 INFO com.group6project.hr.service.impl.SchedulerService [scheduling-1] Schedule Fixed Rate Test 2
+2021-08-07 14:14:40,837 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:60, serverValue:96561}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 14:14:41,488 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:61, serverValue:120322}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 14:14:42,191 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 14:14:42,363 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:62, serverValue:120421}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 14:14:42,364 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=118976300, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 14:14:43 MDT 2021, lastUpdateTimeNanos=482936599839900}
+2021-08-07 14:14:42,364 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 14:14:42,880 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:63, serverValue:96194}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 14:14:46,454 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-00.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 14:14:46,619 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:64, serverValue:96193}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 14:14:46,620 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-00.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=113780900, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-00.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c43ea8f57ca82aa3750f9, counter=4}, lastWriteDate=Sat Aug 07 14:14:48 MDT 2021, lastUpdateTimeNanos=482940856762100}
+2021-08-07 14:14:46,686 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1421)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1033)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 14:14:46,853 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:65, serverValue:96562}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 14:14:46,854 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=116686400, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 14:14:48 MDT 2021, lastUpdateTimeNanos=482941090413300}
+2021-08-07 18:09:28,036 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-02.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 18:09:28,039 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-01.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 18:09:28,342 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:67, serverValue:129905}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 18:09:28,342 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-01.rtxeh.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=150459100, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-01.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff000000000000003a, setVersion=6, topologyVersion=TopologyVersion{processId=610c44041b829223b2873e73, counter=6}, lastWriteDate=Sat Aug 07 18:09:30 MDT 2021, lastUpdateTimeNanos=497022599828800}
+2021-08-07 18:09:28,343 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Discovered replica set primary cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 18:09:28,343 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:66, serverValue:104548}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017
+2021-08-07 18:09:28,343 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-02.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=150126700, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-02.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c441c4e36bc500a61a672, counter=3}, lastWriteDate=Sat Aug 07 18:09:30 MDT 2021, lastUpdateTimeNanos=497022600931800}
+2021-08-07 18:09:28,590 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Exception in monitor thread while connecting to server cluster0-shard-00-00.rtxeh.mongodb.net:27017
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355)
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.setSoTimeout(Socket.java:1235)
+	at java.base/sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(BaseSSLSocketImpl.java:637)
+	at java.base/sun.security.ssl.SSLSocketImpl.setSoTimeout(SSLSocketImpl.java:75)
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512)
+	... 5 common frames omitted
+2021-08-07 18:09:28,862 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:68, serverValue:104188}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 18:09:28,863 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster0-shard-00-00.rtxeh.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=154620800, setName='atlas-gzrzyd-shard-0', canonicalAddress=cluster0-shard-00-00.rtxeh.mongodb.net:27017, hosts=[cluster0-shard-00-00.rtxeh.mongodb.net:27017, cluster0-shard-00-01.rtxeh.mongodb.net:27017, cluster0-shard-00-02.rtxeh.mongodb.net:27017], passives=[], arbiters=[], primary='cluster0-shard-00-01.rtxeh.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='US_WEST_2'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=6, topologyVersion=TopologyVersion{processId=610c43ea8f57ca82aa3750f9, counter=4}, lastWriteDate=Sat Aug 07 18:09:31 MDT 2021, lastUpdateTimeNanos=497023120648300}
+2021-08-07 18:09:37,978 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-01.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:69, serverValue:129668}] to cluster0-shard-00-01.rtxeh.mongodb.net:27017
+2021-08-07 18:09:38,820 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-00.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:70, serverValue:104173}] to cluster0-shard-00-00.rtxeh.mongodb.net:27017
+2021-08-07 18:09:42,546 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='610c613b7cd76b5c36a71764', description='null'}-cluster0-shard-00-02.rtxeh.mongodb.net:27017] Opened connection [connectionId{localValue:71, serverValue:104567}] to cluster0-shard-00-02.rtxeh.mongodb.net:27017

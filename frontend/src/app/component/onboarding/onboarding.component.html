@@ -1,0 +1,233 @@
+<div style="width: 30%; padding: 20px">
+
+<h1>Welcome Onboard !</h1>
+<br>
+<!-- 
+<button class="button btn-info"
+	(click)='documentCheck=true'>Required Documents</button>
+ 
+<button class="button btn-info"
+	(click)='documentCheck = false'>Form Filling</button>
+
+<div *ngIf='documentCheck'>
+  <app-documentation-page></app-documentation-page>
+</div> -->
+
+
+
+<div>
+<form [formGroup] ='profileForm' #myForm="ngForm" (ngSubmit)="postOnboardingData()" ngNativeValidate>
+  <div class="form-group">
+    <label>Choose an Avatar</label>
+    <input type="file" (change)='selectAvatar($event)' accept=".jpg, .jpeg, .png">
+    <p class="help-block">File can be in .jpg, .jpeg, or .png</p>
+  </div>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="First Name" 
+      [(ngModel)]="employee.firstName" [ngModelOptions]="{standalone: true}" name="firstName" required>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" placeholder="Last Name" 
+      [(ngModel)]="employee.lastName" [ngModelOptions]="{standalone: true}" name="lastName" required>
+    </div>
+    <div class="form-group">
+        <label>Middle Name</label>
+        <input type="text" class="form-control" placeholder="Middle Name" 
+        [(ngModel)]="employee.middleName" [ngModelOptions]="{standalone: true}" name="middleName">
+    </div>
+    <div class="form-group">
+      <label>Preferred Name</label>
+      <input type="text" class="form-control" placeholder="English or Nick Name" 
+      [(ngModel)]="employee.preferredName" [ngModelOptions]="{standalone: true}" name="preferredName">
+  </div>
+  <div class="form-group">
+    <label>Address Line 1</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.address.addressLine1" [ngModelOptions]="{standalone: true}" name="addressLine1">
+  </div>
+  <div class="form-group">
+    <label>Address Line 2</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.address.addressLine2" [ngModelOptions]="{standalone: true}" name="addressLine2">
+  </div>
+  <div class="form-group">
+    <label>City</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.address.city" [ngModelOptions]="{standalone: true}" name="city">
+  </div>
+  <div class="form-group">
+    <label>Zip Code</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.address.zipCode" [ngModelOptions]="{standalone: true}" name="zipCode">
+  </div>
+  <div class="form-group">
+    <label>State</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.address.stateName" [ngModelOptions]="{standalone: true}" name="stateName">
+  </div>
+  <div class="form-group">
+    <label>Cell Phone</label>
+    <input type="text" mask="(000) 000-0000" [dropSpecialCharacters]="false" class="form-control" placeholder="" 
+    [(ngModel)]="employee.cellphone" [ngModelOptions]="{standalone: true}" name="cellphone">
+  </div>
+  <div class="form-group">
+    <label>Alternate Phone</label>
+    <input type="text" mask="(000) 000-0000" [dropSpecialCharacters]="false" class="form-control" placeholder="" 
+    [(ngModel)]="employee.alternatePhone" [ngModelOptions]="{standalone: true}" name="alternatePhone">
+  </div>
+  <div class="form-group">
+    <label>Car Information (Optional)</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.car" [ngModelOptions]="{standalone: true}" name="car">
+    <p class="help-block">Make_Model_Color (e.g. Audi_Q7_Black)</p>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.email" [ngModelOptions]="{standalone: true}" name="email" disabled/>
+  </div>
+  <div class="form-group">
+    <label>Social Security Number</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.ssn" [ngModelOptions]="{standalone: true}" name="ssn">
+  </div>
+  <div class="form-group">
+    <label>Gender</label>
+    <input type="text" class="form-control" placeholder="" 
+    [(ngModel)]="employee.gender" [ngModelOptions]="{standalone: true}" name="gender">
+  </div>
+  <div class="form-group">
+    <label>Date of Birth</label> &nbsp;
+    <mat-form-field>
+      <input matInput [matDatepicker]='dobPicker' placeholder="Select Date" 
+      [(ngModel)]="employee.dob" [ngModelOptions]="{standalone: true}" name="dob" required>
+      <mat-datepicker-toggle matSuffix [for]='dobPicker'></mat-datepicker-toggle>
+      <mat-datepicker #dobPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <label>Are you a citizen or permanent resident of the U.S? &nbsp; </label>
+      <input #permanentCheck type="checkbox" (change)="true">
+      <label> &nbsp; Yes/No &nbsp; </label>
+    </div>
+    <div *ngIf="permanentCheck.checked else elseBlock">
+      <input #citizen type="checkbox" (change) ="setGreenCard(citizen.checked)" [disabled] = "greencard.checked" required>
+      <label> &nbsp; Green Card &nbsp; </label>
+      <input #greencard type="checkbox"  (change) ="setCitizen(greencard.checked)" [disabled] = "citizen.checked" required>
+      <label> &nbsp; Citizen &nbsp; </label>
+    </div>
+    <ng-template #elseBlock>
+      <mat-form-field appearance="fill">
+        <mat-label>Work Authorization</mat-label>
+        <mat-select [formControl]="workAuthControl" [(value)]="employee.visaStatus.visaType" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let auth of workAuth" [value]="auth">
+            {{auth}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="workAuthControl.hasError('required')">Please choose your authorization</mat-error>
+        <mat-hint>{{workAuthControl.value?.sound}}</mat-hint>
+      </mat-form-field>
+      <div *ngIf="otherVisaCheck();">
+        <label>If Other, Please Specify: </label> &nbsp;
+        <input type="text" class="form-control" 
+        [(ngModel)]="employee.visaStatus.visaType" [ngModelOptions]="{standalone: true}" name = "visaType">
+      </div> 
+      <div class="form-group">
+        <div>
+          <label>Start Date</label> &nbsp;
+        <mat-form-field>
+          <input matInput [matDatepicker]='visaStartPicker' placeholder="YYYY-MM-DD" [(ngModel)]="employee.visaStatus.visaStartDate" [ngModelOptions]="{standalone: true}" name="visaStartDate" required>
+          <mat-datepicker-toggle matSuffix [for]='visaStartPicker'></mat-datepicker-toggle>
+          <mat-datepicker #visaStartPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <label>End Date</label> &nbsp;
+        <mat-form-field>
+          <input matInput [matDatepicker]='visaEndPicker' placeholder="YYYY-MM-DD" [(ngModel)]="employee.visaStatus.visaEndDate" [ngModelOptions]="{standalone: true}" name="visaEndDate" required>
+          <mat-datepicker-toggle matSuffix [for]='visaEndPicker'></mat-datepicker-toggle>
+          <mat-datepicker #visaEndPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+        <label>Upload Visa Document</label>
+        <input type="file" (change)='selectWorkDocument($event)' accept=".pdf, .doc, .docx" required>
+        <p class="help-block">File can be in .pdf, .doc, or .docx</p>
+      </div>
+    </ng-template>
+    </div>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <label>Do you have a driver license? &nbsp; </label>
+        <input #driverCheck type="checkbox" (change) = "true">
+        <label> &nbsp; Yes/No &nbsp; </label>
+      </div>
+      <div *ngIf="driverCheck.checked">
+        <label> &nbsp; License Number &nbsp; </label>
+        <input type="text" [(ngModel)]="employee.driverLicense" [ngModelOptions]="{standalone: true}" name='driverLicense' required>
+
+        <label>Expiration Date &nbsp;
+        <mat-form-field>
+          <input matInput [matDatepicker]='driverExpiration' placeholder="YYYY-MM-DD" 
+              [(ngModel)]="employee.driverLicense_expirationDate" [ngModelOptions]="{standalone: true}" name="driverLicense_expirationDate" required>
+          <mat-datepicker-toggle matSuffix [for]='driverExpiration'></mat-datepicker-toggle>
+          <mat-datepicker #driverExpiration></mat-datepicker>
+        </mat-form-field>
+      </label>
+      <br>
+      <label>Upload A Copy Of Your License</label>
+      <br>
+      <input type="file" (change)='selectDriverLicense($event)' accept=".jpg, .jpeg, .png, .pdf, .doc, .docx" required>
+      <p class="help-block">File can be in .jpeg, .jpg, .png, .pdf, .doc, or .docx</p>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <label>Do you have a reference? &nbsp; </label>
+        <input #referenceCheck type="checkbox" (change) = "true">
+        <label> &nbsp; Yes/No &nbsp; </label>
+      </div>
+      <div *ngIf="referenceCheck.checked">
+        <div formGroupName="reference">
+          <label>&nbsp; Reference's Contact Information &nbsp;</label>
+          <input formControlName="firstName" class="form-control" placeholder="First Name">
+          <input formControlName="lastName" class="form-control" placeholder="Last Name">
+          <input formControlName="middleName" class="form-control" placeholder="Middle Name">
+          <input formControlName="cellphone" class="form-control" placeholder="Phone Number">
+          <input formControlName="address" class="form-control" placeholder ="Physical Address">
+          <input formControlName="email" class="form-control" placeholder ="Email Address">
+          <input formControlName="relationship" class="form-control" placeholder="Relationship">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div formArrayName="emergency" *ngFor="let emergency of emergency.controls; let i = index;">
+        <div [formGroupName]="i">
+          <br>
+          <label> &nbsp; Emergency Contact #{{i+1}} &nbsp; </label>
+          <input formControlName="firstName" class="form-control" placeholder="First Name">
+          <input formControlName="lastName" class="form-control" placeholder="Last Name">
+          <input formControlName="middleName" class="form-control" placeholder="Middle Name">
+          <input formControlName="cellphone" class="form-control" placeholder="Phone Number">
+          <input formControlName="email" class="form-control" placeholder ="Email Address">
+          <input formControlName="relationship" class="form-control" placeholder="Relationship">
+        </div> 
+      </div>
+    </div>
+  <br>
+  <button  style="display: inline;" type="button" class="btn btn-default" (click)="addEmergency()">Add Emergency Contact</button> 
+   
+   
+  <br>
+  <br>
+    
+
+  <button type="submit" class="btn btn-default" [disabled]="!myForm.valid">Submit</button>
+  </form>
+</div>
+
+</div>

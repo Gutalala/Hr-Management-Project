@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <form class="form-signup" #myForm="ngForm" (ngSubmit)='postUser()'>
+        <h2 class="form-signup-heading">Create A New Account</h2>
+        <label>Email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="{{user.email}}" disabled/>
+        <br>
+        <label>User Name</label>
+        <input type="text" class="form-control" id="txtUser" [(ngModel)]="user.username" name="username" placeholder="Username" required autofocus="" />
+        <br>
+        <label>Password</label>
+        <input type="password" class="form-control" id="txtPassword" name="password" [(ngModel)]='user.password' placeholder="Password" required/>
+        <input type="password" class="form-control" id="txtPasswordConfirm" name="passwordConfirm" placeholder="Confirm Password"/>
+
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Register" [disabled]="!myForm.valid"/>
+
+    </form>
+</div>

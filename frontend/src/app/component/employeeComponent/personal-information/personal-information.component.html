@@ -1,0 +1,183 @@
+<div>
+    <h2>Personal Information</h2>
+</div>
+<div>
+    <h3>Name</h3>
+    <div *ngIf = "showNameFormBtn">
+        <p>Name: {{employee.firstName}} {{employee.lastName}}</p>
+        <p>Preferred Name: {{employee.preferredName}}</p>
+        <p>Date of Birth: {{employee.dob | date:'MM-dd-YYYY'}}</p>
+        <p>Age: {{calculateAge(employee.dob)}}</p>
+        <p>Gender: {{employee.gender}}</p>
+        <p>SSN: {{employee.ssn}}</p>
+        <button mat-raised-button (click) = "toggleNameForm()">Edit</button>
+    </div>
+    <form [formGroup] = "employeeForm" #myForm="ngForm" *ngIf = "showNameForm">
+        <div class = "form-group">
+            <label for = "firstName">First Name</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.firstName" 
+            [ngModelOptions] = "{standalone: true}" name = "firstName" id = "firstName" required><br>
+
+            <label for = "lastName">Last Name</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.lastName"
+            [ngModelOptions] = "{standalone: true}" name = "lastName" id = "lastName" required><br>
+
+            <label for = "preferredName">Preferred Name</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.preferredName"
+            [ngModelOptions] = "{standalone: true}" name = "preferredName" id = "preferredName"><br>
+            
+            <label>Date of Birth</label><br>
+            <mat-form-field>
+                <input matInput [matDatepicker]='dobPicker' placeholder="Select Date" 
+                [(ngModel)]="employee.dob" [ngModelOptions]="{standalone: true}" name="dob" required>
+            <mat-datepicker-toggle matSuffix [for]='dobPicker'></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+            </mat-form-field><br>
+
+            <button mat-raised-button (click) = "cancelNameForm()">Cancel</button>&nbsp;
+            <button mat-raised-button color = "primary" (click) = "submitNameForm()">Save</button>
+        </div>
+    </form>
+</div>
+<hr>  
+<div>
+    <h3>Contact Information</h3>
+    <div *ngIf = "showContactFormBtn">
+        <p>Personal Email: {{employee.email}}</p>
+        <p>Cellphone: {{employee.cellphone}}</p>
+        <button mat-raised-button (click) = "toggleContactForm()">Edit</button>
+    </div>
+    <form [formGroup] = "contactForm" #myForm = "ngForm" *ngIf = "showContactForm">
+        <div class = "form-group">
+            <label for = "personalEmail">Personal Email</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.email" 
+            [ngModelOptions] = "{standalone: true}" name = "personalEmail" id = "personalEmail" required><br>
+
+            <label for = "cellphone">Cellphone</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.cellphone" 
+            [ngModelOptions] = "{standalone: true}" name = "cellphone" id = "cellphone" required><br>
+
+            <button mat-raised-button (click) = "cancelContactForm()">Cancel</button>&nbsp;
+            <button mat-raised-button color = "primary" (click) = "submitContactForm()">Save</button>
+        </div>
+    </form>
+</div>
+<hr>
+<div>
+    <h3>Address</h3>
+    <div *ngIf = "showAddressFormBtn">
+        <h4>Primary Address</h4>
+        <p>Address: {{employee.address.addressLine1}} {{employee.address.addressLine2}}</p>
+        <p>City: {{employee.address.city}}</p>
+        <p>State: {{employee.address.stateName}} ({{employee.address.stateAbbr}})</p>
+        <p>ZipCode: {{employee.address.zipCode}}</p>
+        <button mat-raised-button (click) = "toggleAddressForm()">Edit</button>
+    </div>
+    <form [formGroup] = "addressForm" #myForm = "ngForm" *ngIf = "showAddressForm">
+        <div class = "form-group">
+            <label for = "addressLine1">Address Line 1</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.address.addressLine1" 
+            [ngModelOptions] = "{standalone: true}" name = "addressLine1" id = "addressLine1" required><br>
+
+            <label for = "addressLine2">Address Line 2</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.address.addressLine2" 
+            [ngModelOptions] = "{standalone: true}" name = "addressLine2" id = "addressLine2"><br>
+
+            <label for = "city">City</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.address.city" 
+            [ngModelOptions] = "{standalone: true}" name = "city" id = "city" required><br>
+
+            <label for = "stateName">State Name</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.address.stateName" 
+            [ngModelOptions] = "{standalone: true}" name = "stateName" id = "stateName" required><br>
+
+            <label for = "stateAbbr">State Abbreviation</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.address.stateAbbr" 
+            [ngModelOptions] = "{standalone: true}" name = "stateAbbr" id = "stateAbbr" required><br>
+
+            <label for = "zipCode">ZipCode</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.address.zipCode" 
+            [ngModelOptions] = "{standalone: true}" name = "zipCode" id = "zipCode" required><br>
+
+            <button mat-raised-button (click) = "cancelAddressForm()">Cancel</button>&nbsp;
+            <button mat-raised-button color = "primary" (click) = "submitAddressForm()">Save</button>
+        </div>
+    </form>
+</div>
+<hr>
+<div>
+    <h3>Employment</h3>
+    <div *ngIf = "showVisaStatusFormBtn">
+        <p>Work Authorization: {{employee.visaStatus.visaType}}</p>
+        <p>Visa Start Date: {{employee.visaStatus.visaStartDate | date:'MM-dd-YYYY'}}</p>
+        <p>Visa End Date: {{employee.visaStatus.visaEndDate | date:'MM-dd-YYYY'}}</p>
+        <p>Employment Start Date: {{employee.startDate | date:'MM-dd-YYYY'}}</p>
+        <p>Employment End Date: {{employee.endDate | date:'MM-dd-YYYY'}}</p>
+        <button mat-raised-button (click) = "toggleVisaStatusForm()">Edit</button>
+    </div>
+    <form [formGroup] = "visaStatusForm" #myForm = "ngForm" *ngIf = "showVisaStatusForm">
+        <div class = "form-group">
+            <label for = "visaType">Work Authorization (Visa Type)</label><br>
+            <input type = "text" class = "form-control" [(ngModel)] = "employee.visaStatus.visaType" 
+            [ngModelOptions] = "{standalone: true}" name = "visaType" id = "visaType" required><br>
+
+            <label>Visa Start Date</label><br>
+            <mat-form-field>
+                <input matInput [matDatepicker]='visaStartPicker' placeholder="YYYY-MM-DD" [(ngModel)]="employee.visaStatus.visaStartDate" [ngModelOptions]="{standalone: true}" name="visaStartDate" required>
+                <mat-datepicker-toggle matSuffix [for]='visaStartPicker'></mat-datepicker-toggle>
+                <mat-datepicker #visaStartPicker></mat-datepicker>
+            </mat-form-field><br>
+
+            <label>End Date</label><br>
+            <mat-form-field>
+              <input matInput [matDatepicker]='visaEndPicker' placeholder="YYYY-MM-DD" [(ngModel)]="employee.visaStatus.visaEndDate" [min] = "employee.visaStatus.visaStartDate" [ngModelOptions]="{standalone: true}" name="visaEndDate" required>
+              <mat-datepicker-toggle matSuffix [for]='visaEndPicker'></mat-datepicker-toggle>
+              <mat-datepicker #visaEndPicker></mat-datepicker>
+            </mat-form-field><br>
+
+            <button mat-raised-button (click) = "cancelVisaStatusForm()">Cancel</button>&nbsp;
+            <button mat-raised-button color = "primary" (click) = "submitVisaStatusForm()">Save</button>
+        </div>
+    </form>
+</div>
+<hr>
+<div>
+    <h3>Emergency Contact</h3>
+    <div *ngIf = "showEmergencyContactFormBtn">
+        <mat-list *ngFor = "let contact of employee.contact; index as i">
+            <mat-list-item *ngIf = "contact.emergency">
+                Emergency Contact #{{i+1}}:<br>
+                Name: {{contact.firstName}} {{contact.lastName}}<br>
+                Cellphone: {{contact.cellphone}}
+            </mat-list-item><br>
+        </mat-list>
+        <button mat-raised-button (click) = "toggleEmergencyContactForm()">Edit</button>
+    </div>
+    <form [formGroup] = "emergencyContactForm" *ngIf = "showEmergencyContactForm">
+        <div formArrayName = "emergencyContacts" *ngFor = "let contact of emergencyContacts.controls; let i = index;">
+            <div [formGroupName] = "i">
+                <label> &nbsp; Emergency Contact #{{i+1}} &nbsp; </label><br>
+                <input type = "text" class = "form-control" [(ngModel)] = "employee.contact[i].firstName" [ngModelOptions] = "{standalone: true}" name = "firstName" placeholder = "First Name" required>
+                <input type = "text" class="form-control" [(ngModel)] = "employee.contact[i].lastName" [ngModelOptions] = "{standalone: true}" name = "lastName" placeholder = "Last Name" required>
+                <input type = "text" class="form-control" [(ngModel)] = "employee.contact[i].cellphone" [ngModelOptions] = "{standalone: true}" name = "cellphone" placeholder = "Phone Number" required>
+                <input type = "text" class="form-control" [(ngModel)] = "employee.contact[i].email" [ngModelOptions] = "{standalone: true}" name = "email" placeholder = "Email Address" required>
+                <input type = "text" class="form-control" [(ngModel)] = "employee.contact[i].relationship" [ngModelOptions] = "{standalone: true}" name = "relationship" placeholder = "Relationship" required>
+            </div> 
+            <br>
+        </div>
+        <div>
+            <div>
+                <button mat-raised-button (click) = "addEmergencyContact()">Add Emergency Contact</button>&nbsp;
+                <button mat-raised-button (click) = "cancelEmergencyContactForm()">Cancel</button>&nbsp;
+                <button mat-raised-button color = "primary" (click) = "submitEmergencyContactForm()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<hr>
+<div>
+    <h3>Personal Documents</h3>
+    <div>
+        <li *ngFor = "let document of employee.personalDocuments">{{document.filename}}</li>
+    </div>
+</div>

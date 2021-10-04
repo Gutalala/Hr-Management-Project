@@ -1,0 +1,17 @@
+<h3>HR Hire Section</h3>
+
+<app-generatetoken></app-generatetoken>
+
+
+
+
+<ng-container *ngFor="let application of applications" >
+
+<div> <a [routerLink]="['/hrapplication', application.employeeId]" routerLinkActive="router-link-active" >View Details</a> Employee id: {{application.employeeId}} | Name: {{application.firstName}} {{application.lastName}}| Email: {{application.email}} | status: {{application.status}} | </div>
+
+
+</ng-container> 
+
+
+<app-documentsreview></app-documentsreview>
+

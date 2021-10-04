@@ -1,0 +1,25 @@
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">House Information</h5>
+      <p class="card-text">Address: {{house.address}}</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor='let employee of employeeList'>
+
+      <li class="list-group-item" *ngIf="employee.preferredName !== '' else elseBlock">Name: {{nameFilter(employee)}}. &nbsp; Phone Number: {{employee.cellphone}}</li>
+      <ng-template #elseBlock>
+        <li class="list-group-item">Name: {{employee.firstName}}. &nbsp; Phone Number: {{employee.cellphone}}</li>
+      </ng-template>
+    </ul>
+    <div class="card-body">
+      <a href="javascript: void(0);" (click)="reportChoice = 'create'; scroll(create)" class="card-link" >Report An Issue</a>
+      <a href="javascript: void(0);" (click)="reportChoice = 'view';scroll(view)" class="card-link">View Existing Reports</a>
+    </div>
+  </div>
+
+<div #create>
+  <app-create-report *ngIf="reportChoice =='create'" else elseBlock></app-create-report>
+</div>
+
+<div #view>
+  <app-view-report #elseBlock *ngIf="reportChoice == 'view'"></app-view-report>
+</div>

@@ -1,0 +1,15 @@
+
+
+<form class="example-form"  (ngSubmit)="createReport(); openSnackBar()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Name the Issue" [(ngModel)]="report.title" name="title">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="What's bothering you?" [(ngModel)]="report.description" name="description"></textarea>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+</form>

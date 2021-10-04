@@ -1,0 +1,14 @@
+<div *ngIf = "user == null">
+    <div class="topnav">
+        <a class="active" href="http://localhost:4201">Log In</a>
+    </div>
+</div>
+<div *ngIf = "user != null">
+    <div  *ngIf = "employee.manager_id == null">
+        <app-employee-home-page></app-employee-home-page>
+    </div>
+
+    <div *ngIf = "employee.manager_id != null">
+        <app-hr-home-page></app-hr-home-page>
+    </div>
+</div>

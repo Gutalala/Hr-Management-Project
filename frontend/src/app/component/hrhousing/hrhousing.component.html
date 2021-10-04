@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <h1>Housing Management</h1>
+        <button mat-raised-button color="primary" (click)='addSwitch()'>Add New Facility</button> &nbsp;
+        <button mat-raised-button color="accent" (click)='viewSwitch()'>View All Facilities</button> &nbsp;
+        <br>
+        <br>
+
+        <div *ngIf='isAdd'>
+            <app-add-facility></app-add-facility>
+        </div>
+        
+        <div *ngIf='isView'>
+            <app-view-facility></app-view-facility>
+        </div>
+        
+        <div *ngIf='isDelete'>
+            <app-delete-facility></app-delete-facility>
+        </div>
+</div>
+

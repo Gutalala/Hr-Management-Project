@@ -1,0 +1,79 @@
+
+<div class="card-columns" style="margin-left: 20px; margin-top: 50px;" *ngIf='isHouseList'>
+    <div class="card" *ngFor='let house of houseList'>
+        <div class="card-body">
+          <h3 class="card-title">Address: {{house.address}}</h3>
+          <p class="card-text">Landlord Name: {{house.contact.firstName}} {{house.contact.lastName}}</p>
+          <p class="card-text">Landlord Phone: {{house.contact.cellphone}}</p>
+          <p class="card-text">Landlord Email: {{house.contact.email}}</p>
+          <p class="card-text">Number of Person: {{house.numberOfPerson}}</p>
+          <button type="button" class="btn btn-info" (click)='currHouse = house; viewDetailCheck()'>View Details</button> &nbsp;
+          <button type="button" class="btn btn-danger" (click)='currHouse = house; deleteHouse()'>Delete House</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf='isViewDetail'>
+    <mat-list>
+        <mat-label>House Information</mat-label> &nbsp; 
+        <button type="button" class="btn btn-outline-info" (click)='viewEmployeeListCheck(); viewEmployeeList()'>Employee List</button>
+        <mat-list-item>Address: {{currHouse.address}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Landlord Name: {{currHouse.contact.firstName}} {{currHouse.contact.lastName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Landlord Phone: {{currHouse.contact.cellphone}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Landlord Email: {{currHouse.contact.email}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Number of Person: {{currHouse.numberOfPerson}}</mat-list-item>
+        <br>
+        <br>
+        <mat-label>Facility Information</mat-label> &nbsp; 
+        <button type="button" class="btn btn-outline-info" (click)="viewReportCheck()">View Reports</button>
+        <mat-list-item>Number of Beds: {{currHouse.facility.numOfBed}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Number of Mattresses: {{currHouse.facility.numOfMattress}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Number of Tables: {{currHouse.facility.numOfTable}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Number of Chairs: {{currHouse.facility.numOfChair}}</mat-list-item>
+      </mat-list>
+</div>
+
+<div *ngIf='isViewReport'> 
+    <app-view-report></app-view-report>
+</div>
+
+<div class="mat-elevation-z8" *ngIf='isEmployeeList' style="text-align:left;">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"><a href="javascript: void(0);" (click)='routeEmployeeProfile(element.id)'> {{element.firstName}} {{element.lastName}} </a> </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.cellphone}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Car </th>
+        <td mat-cell *matCellDef="let element"> {{element.car}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+

@@ -1,0 +1,8 @@
+<div>
+    <form [formGroup] = "loginForm" (ngSubmit) = "onSubmit()">
+        <label>{{loginError}}<br></label>
+        <input type = "text" placeholder = "username or email" formControlName = "username"><br>
+        <input type = "password" placeholder = "password" formControlName = "password"><br><br>
+        <button type = "submit" [disabled] = "!loginForm.valid">Login</button>
+    </form>
+</div>

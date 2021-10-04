@@ -1,0 +1,110 @@
+ 
+
+
+<div class="container">
+
+    <h4> Review Employee Application</h4>
+
+    <div [hidden]="submitted">
+
+        <form (ngSubmit)="onSubmit()" #EmpForm="ngForm">
+
+    
+            <div class="form-group row">
+                <label for="first" class="col">Firstname: {{employeeDetails.firstName}} </label>
+                Comment : <input type="text" class="form-control col" id="fisrtName" [(ngModel)]="thecomment.firstName" name="firstName" #name="ngModel">
+            </div>
+      
+            <div class="form-group row ">
+                <label for="LastName" class="col">LastName: {{employeeDetails.lastName}} </label>
+                Comment :  <input type="text" class="form-control col" id="LastName" [(ngModel)]="thecomment.lastName" name="lastName" #name="ngModel">
+            </div>
+ 
+            <div class="form-group row ">
+          <label for="middleName" class="col" >Middle Name: {{employeeDetails.middleName}} </label>  
+          Comment : <input type="text" class="form-control col" id="middleName" [(ngModel)]="thecomment.middleName" name="middleName" #name="ngModel"> 
+            </div>
+
+            <div class="form-group row">
+                <label for="preferredName" class="col">Preferred Name: {{employeeDetails.preferredName}} </label>
+                Comment :   <input type="text" class="form-control col" id="preferredName" [(ngModel)]="thecomment.preferredName" name="preferredName" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="avatarName" class="col">Avatar Name: {{employeeDetails.avatarName}} </label>
+                Comment :  <input type="text" class="form-control col" id="avatarName" [(ngModel)]="thecomment.avatarName" name="avatarName" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="addressLine1" class="col">Address Line1: {{employeeDetails.addressLine1}} </label>
+                Comment : <input type="text" class="form-control col" id="addressLine1" [(ngModel)]="thecomment.addressLine1" name="addressLine1" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="addressLine2" class="col">Address Line2: {{employeeDetails.addressLine2}} </label>
+                Comment : <input type="text" class="form-control col" id="addressLine2" [(ngModel)]="thecomment.addressLine2" name="addressLine2" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="city" class="col">city: {{employeeDetails.city}} </label>
+                Comment : <input type="text" class="form-control col" id="city" [(ngModel)]="thecomment.city" name="city" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="state" class="col">state: {{employeeDetails.state}} </label>
+                Comment : <input type="text" class="form-control col" id="state" [(ngModel)]="thecomment.state" name="state" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="zipcode" class="col">zipcode: {{employeeDetails.zipcode}} </label>
+                Comment : <input type="text" class="form-control col" id="zipcode" [(ngModel)]="thecomment.zipcode" name="zipcode" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="car" class="col">car: {{employeeDetails.car}} </label>
+                Comment : <input type="text" class="form-control col" id="car" [(ngModel)]="thecomment.car" name="car" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col">email: {{employeeDetails.email}} </label>
+                Comment : <input type="text" class="form-control col" id="email" [(ngModel)]="thecomment.email" name="email" #name="ngModel">
+            </div>
+
+
+            <div class="form-group row">
+                <label for="ssn" class="col">ssn: {{employeeDetails.ssn}} </label>
+                Comment : <input type="text" class="form-control col" id="ssn" [(ngModel)]="thecomment.ssn" name="ssn" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="dob" class="col">dob: {{employeeDetails.dob}} </label>
+                Comment : <input type="text" class="form-control col" id="dob" [(ngModel)]="thecomment.dob" name="dob" #name="ngModel">
+            </div>
+
+            
+            <div class="form-group row">
+                <label for="gender" class="col">gender: {{employeeDetails.gender}} </label>
+                Comment : <input type="text" class="form-control col" id="gender" [(ngModel)]="thecomment.gender" name="gender" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="visa" class="col">Visa Type: {{employeeDetails.visa}} </label>
+                Comment : <input type="text" class="form-control col" id="visa" [(ngModel)]="thecomment.visa" name="visa" #name="ngModel">
+            </div>
+
+            <div class="form-group row">
+                <label for="globalcomment" class="col">Global Comment</label>
+                Comment :  <input type="text" class="form-control col" id="globalcomment" [(ngModel)]="thecomment.globalcomment" name="globalcomment" #name="ngModel"   > 
+            </div>
+
+              <button type="submit" class="btn btn-success" [disabled]="!EmpForm.form.valid" (click)="approve()">Approve</button>
+              <button type="submit" class="btn btn-danger" [disabled]="!EmpForm.form.valid" (click)="reject()">Reject</button>
+
+        </form>
+
+    </div>
+
+
+
+
+</div>

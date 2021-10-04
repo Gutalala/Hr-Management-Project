@@ -1,0 +1,7 @@
+<div class="topnav">
+    <a class="active" routerLink="/employee/homepage">Home</a>
+    <a routerLink = "/employee/personalInformation">Personal Inforamtion</a>
+    <a routerLink="employee/visaStatus" *ngIf = "employee.visaStatus.visaType != 'citizen' && employee.visaStatus.visaType != 'green card'">Visa Status Management</a>
+    <a routerLink="/employee/housing">Housing</a>
+    <a href="#" (click) = "logout()">Log Out</a>
+</div>

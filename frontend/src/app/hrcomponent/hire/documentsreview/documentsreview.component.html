@@ -1,0 +1,92 @@
+<h3>Documents Review</h3>
+
+
+
+<table mat-table [dataSource]="dataDocumentList" multiTemplateDataRows> 
+
+    
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} {{element.lastname}} </td>
+      </ng-container>
+    
+   
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="filename">
+        <th mat-header-cell *matHeaderCellDef> Filename </th>
+        <td mat-cell *matCellDef="let element"> {{element.filename}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef> Created Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="preview">
+        <th mat-header-cell *matHeaderCellDef> Preview</th>
+        <td mat-cell *matCellDef="let element"> <button (click)="previewFile(element.id, element.filename)">Preview</button>  </td>
+      </ng-container>
+
+      <ng-container matColumnDef="download">
+        <th mat-header-cell *matHeaderCellDef> Download</th>
+        <td mat-cell *matCellDef="let element"> <button (click)="downloadFile(element.id, element.filename)">Download</button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="addcomment">
+        <th mat-header-cell *matHeaderCellDef> Add Comment</th>
+        <td mat-cell *matCellDef="let element"> 
+          <form [formGroup]="commentform" (ngSubmit)="onSubmit(element.id)">
+            Comment : <input id="token" type="text" formControlName="comment">  <button class="button" type="submit">Submit</button>
+        </form>
+        
+        </td>
+      </ng-container>
+
+            
+      
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions</th>
+            <td mat-cell *matCellDef="let element"> 
+              <div *ngIf="element.title == 'I-983 Waiting For Approval' ">  
+               
+
+ 
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit2(element.employee_id)">      
+          <div>
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+          </div>
+          <div>
+            <button type="submit">Upload Signed I-983 and Approve</button>
+          </div>
+        </form>
+        
+ 
+
+ 
+              
+           
+               </div>
+              
+               <div *ngIf="element.title != 'I-983 Waiting For Approval' ">  
+                <button (click)="approvedocument(element.employee_id, element.id)">Approve</button>   
+                <button (click)="rejectdocument(element.employee_id, element.id)">Reject</button>
+               </div>
+              
+              </td>
+          </ng-container>
+ 
+
+ 
+
+      <tr mat-header-row *matHeaderRowDef="displayedDocumentsColumnsList;sticky: true"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedDocumentsColumnsList;"  ></tr>
+
+  </table>
+
+
+  <div> <pdf-viewer [src]="previewurl" [original-size]="true"></pdf-viewer></div>
